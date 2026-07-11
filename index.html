@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 - 嘎嘎-简体笔画输入法</title>
+    <style>
+        :root {
+            --text: #1d1d1f;
+            --secondary: #6e6e73;
+            --bg: #ffffff;
+            --card: #f5f5f7;
+            --border: #d2d2d7;
+            --accent: #0071e3;
+            --max-w: 760px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        header {
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        header h1 {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+        }
+        header p {
+            max-width: var(--max-w);
+            margin: 4px auto 0;
+            padding: 0 24px;
+            color: var(--secondary);
+            font-size: 15px;
+        }
+        main {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 32px 24px 64px;
+        }
+        section { margin-bottom: 36px; }
+        h2 {
+            font-size: 21px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+        p, li { font-size: 16px; color: #333; }
+        p + p { margin-top: 10px; }
+        ul { padding-left: 20px; margin: 8px 0; }
+        li { margin-bottom: 6px; }
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 16px 0;
+        }
+        .card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .check {
+            color: #34c759;
+            font-weight: 600;
+        }
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 24px;
+            text-align: center;
+            color: var(--secondary);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>隐私政策</h1>
+    <p>嘎嘎-简体笔画输入法 · 最后更新：2026年7月11日</p>
+</header>
+
+<main>
+
+<section>
+    <h2>概述</h2>
+    <p>
+        <strong>嘎嘎-简体笔画输入法</strong>（以下简称"嘎嘎"或"本应用"）由个人开发者开发，致力于保护用户隐私。
+        本隐私政策说明我们如何收集、使用和保护你的个人信息。
+    </p>
+    <p>
+        <strong>核心承诺：键盘扩展零权限、零网络、零数据收集。你输入的一切只存在于你的设备上。</strong>
+    </p>
+</section>
+
+<section>
+    <h2>我们收集什么数据</h2>
+
+    <div class="card">
+        <h3>键盘扩展</h3>
+        <p><span class="check">✓</span> <strong>不收集任何数据。</strong></p>
+        <ul>
+            <li>不请求"允许完全访问"权限</li>
+            <li>无法连接网络（iOS 系统强制隔离）</li>
+            <li>不能读取通讯录、剪贴板、相册、位置</li>
+            <li>不追踪输入内容，所有输入直接上屏到系统文本框</li>
+            <li>本地词频学习完全在设备内完成，不上传</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>主应用</h3>
+        <p><span class="check">✓</span> <strong>仅在以下场景使用网络：</strong></p>
+        <ul>
+            <li><strong>订阅与购买：</strong>连接 Apple App Store 验证和完成支付。此过程由 Apple 处理，我们无法访问你的支付信息。</li>
+            <li><strong>恢复购买：</strong>从 Apple 服务器同步已购项目。</li>
+            <li><strong>除此之外，主应用也不主动联网或上传任何数据。</strong></li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>数据存储</h2>
+    <p>以下数据仅存储在本地设备中：</p>
+    <ul>
+        <li><strong>订阅状态：</strong>存储在 iOS Keychain 和 App Group 共享 UserDefaults 中，用于键盘扩展校验会员权限。</li>
+        <li><strong>词频学习：</strong>你选字/选词的频率记录，仅用于个性化候选排序。存储在 App Group 容器内，不上传。</li>
+        <li><strong>输入历史：</strong>不保存。每次键盘关闭即清除。</li>
+    </ul>
+    <p>以上数据均不与任何第三方共享，不会离开你的设备。</p>
+</section>
+
+<section>
+    <h2>第三方服务</h2>
+    <p>本应用使用的唯一第三方服务是 <strong>Apple StoreKit</strong>（App 内购买与订阅），由 Apple Inc. 提供。</p>
+    <p>StoreKit 受 <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple 隐私政策</a> 约束。我们无法访问你的 Apple ID、支付方式或购买记录详情。</p>
+    <p>本应用<strong>不使用</strong>任何分析 SDK、广告 SDK、统计工具或第三方追踪服务。</p>
+</section>
+
+<section>
+    <h2>键盘扩展的隐私保护原理</h2>
+    <p>iOS 键盘扩展运行在严格的系统沙箱中：</p>
+    <ul>
+        <li>默认情况下，键盘<strong>不能</strong>访问网络</li>
+        <li>默认情况下，键盘<strong>不能</strong>访问其他 App 的数据</li>
+        <li>只有用户主动在"设置 → 通用 → 键盘 → 嘎嘎"中开启"允许完全访问"，键盘才能获得有限的网络和数据库访问权限</li>
+    </ul>
+    <p>嘎嘎<strong>强烈建议用户关闭"允许完全访问"</strong>。本键盘所有功能（笔画输入、分词、词频学习、候选排序）均在关闭完全访问的状态下正常工作。</p>
+</section>
+
+<section>
+    <h2>用户权利</h2>
+    <p>由于本应用不在服务器端收集任何数据，因此：</p>
+    <ul>
+        <li>不存在需要删除的云端数据</li>
+        <li>不存在需要导出的个人信息</li>
+        <li>卸载应用即清除所有本地数据（App Group 容器数据会在卸载时被系统自动清除）</li>
+    </ul>
+</section>
+
+<section>
+    <h2>儿童隐私</h2>
+    <p>本应用不收集任何人的个人数据，包括儿童。所有年龄段的用户享有同等的隐私保护。</p>
+</section>
+
+<section>
+    <h2>隐私政策更新</h2>
+    <p>本隐私政策可能随时更新。重大变更时，我们会在应用内显著位置通知。建议你定期查阅本页面。</p>
+</section>
+
+<section>
+    <h2>联系我们</h2>
+    <p>如对本隐私政策有任何疑问，请通过以下方式联系：</p>
+    <p>📧 <a href="mailto:surpass.yang@gmail.com">surpass.yang@gmail.com</a></p>
+</section>
+
+</main>
+
+<footer>
+    &copy; 2026 嘎嘎-简体笔画输入法 · 保留所有权利
+</footer>
+
+</body>
+</html>
