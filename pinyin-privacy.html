@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 · 咕咕拼音</title>
+    <style>
+        :root {
+            --text: #1d1d1f;
+            --secondary: #6e6e73;
+            --bg: #ffffff;
+            --card: #f5f5f7;
+            --border: #d2d2d7;
+            --accent: #0071e3;
+            --max-w: 760px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        header {
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        header h1 {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+        }
+        header p {
+            max-width: var(--max-w);
+            margin: 4px auto 0;
+            padding: 0 24px;
+            color: var(--secondary);
+            font-size: 15px;
+        }
+        .lang-switch {
+            max-width: var(--max-w);
+            margin: 12px auto 0;
+            padding: 0 24px;
+            display: flex;
+            gap: 8px;
+        }
+        .lang-switch button {
+            font: inherit;
+            font-size: 14px;
+            padding: 6px 18px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--secondary);
+            border-radius: 980px;
+            cursor: pointer;
+            transition: all .15s ease;
+        }
+        .lang-switch button.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+        main {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 32px 24px 64px;
+        }
+        section { margin-bottom: 36px; }
+        h2 {
+            font-size: 21px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+        p, li { font-size: 16px; color: #333; }
+        p + p { margin-top: 10px; }
+        ul { padding-left: 20px; margin: 8px 0; }
+        li { margin-bottom: 6px; }
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 16px 0;
+        }
+        .card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .check {
+            color: #34c759;
+            font-weight: 600;
+        }
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 24px;
+            text-align: center;
+            color: var(--secondary);
+            font-size: 14px;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        /* language toggle */
+        body.lang-zh .en { display: none; }
+        body.lang-en .zh { display: none; }
+    </style>
+</head>
+<body class="lang-zh">
+
+<header>
+    <h1>隐私政策 · 咕咕拼音</h1>
+    <p>
+        <span class="zh">最后更新：2026年7月15日</span>
+        <span class="en">Last updated: July 15, 2026</span>
+    </p>
+    <div class="lang-switch">
+        <button class="active" data-lang="zh">中文</button>
+        <button data-lang="en">English</button>
+    </div>
+</header>
+
+<main>
+
+<section>
+    <div class="zh">
+        <h2>概述</h2>
+        <p><strong>咕咕拼音</strong>（App 显示名「拼音输入法」，键盘名「拼音键盘」）由个人开发者开发，致力于保护用户隐私。本隐私政策说明我们如何收集、使用和保护你的个人信息。</p>
+        <p><strong>核心承诺：键盘扩展零权限、零网络、零数据收集。你输入的一切只存在于你的设备上。</strong></p>
+    </div>
+    <div class="en">
+        <h2>Overview</h2>
+        <p><strong>Gugu Pinyin</strong> (App display name "拼音输入法 / Pinyin Input", keyboard name "拼音键盘 / Pinyin Keyboard") is developed by an individual developer and is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your personal information.</p>
+        <p><strong>Our core promise: the keyboard extension requires zero permissions, zero network access, and collects zero data. Everything you type stays on your device.</strong></p>
+    </div>
+</section>
+
+<section>
+    <div class="zh">
+        <h2>我们收集什么数据</h2>
+        <div class="card">
+            <h3>键盘扩展</h3>
+            <p><span class="check">✓</span> <strong>不收集任何数据。</strong></p>
+            <ul>
+                <li>不请求"允许完全访问"权限</li>
+                <li>无法连接网络（iOS 系统强制隔离）</li>
+                <li>不能读取通讯录、剪贴板、相册、位置</li>
+                <li>不追踪输入内容，所有输入直接上屏到系统文本框</li>
+                <li>本地词频学习完全在设备内完成，不上传</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>主应用</h3>
+            <p><span class="check">✓</span> <strong>仅在以下场景使用网络：</strong></p>
+            <ul>
+                <li><strong>订阅与购买：</strong>连接 Apple App Store 验证和完成支付。此过程由 Apple 处理，我们无法访问你的支付信息。</li>
+                <li><strong>恢复购买：</strong>从 Apple 服务器同步已购项目。</li>
+                <li><strong>除此之外，主应用也不主动联网或上传任何数据。</strong></li>
+            </ul>
+        </div>
+    </div>
+    <div class="en">
+        <h2>What Data We Collect</h2>
+        <div class="card">
+            <h3>Keyboard Extension</h3>
+            <p><span class="check">✓</span> <strong>We collect no data.</strong></p>
+            <ul>
+                <li>We do not request "Allow Full Access"</li>
+                <li>We cannot connect to the network (enforced by iOS sandbox isolation)</li>
+                <li>We cannot read your contacts, clipboard, photo library, or location</li>
+                <li>We do not track what you type — all input goes directly to the system text field</li>
+                <li>Local word-frequency learning happens entirely on-device and is never uploaded</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Main App</h3>
+            <p><span class="check">✓</span> <strong>The network is used only in these scenarios:</strong></p>
+            <ul>
+                <li><strong>Subscriptions &amp; purchases:</strong> connecting to the Apple App Store to verify and complete payments. This is handled by Apple; we cannot access your payment information.</li>
+                <li><strong>Restore Purchases:</strong> syncing previously purchased items from Apple's servers.</li>
+                <li><strong>Apart from these, the main app does not proactively connect to the network or upload any data.</strong></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="zh">
+        <h2>数据存储</h2>
+        <p>以下数据仅存储在本地设备中：</p>
+        <ul>
+            <li><strong>订阅状态：</strong>存储在 iOS Keychain 和 App Group 共享 UserDefaults 中，用于键盘扩展校验会员权限。</li>
+            <li><strong>用户词频 / 用户词库：</strong>你选字、选词的频率与个人词条记录，仅用于个性化候选排序。存储在 App Group 容器内，不上传。</li>
+            <li><strong>输入历史：</strong>不保存。每次键盘关闭即清除。</li>
+        </ul>
+        <p>以上数据均不与任何第三方共享，不会离开你的设备。</p>
+    </div>
+    <div class="en">
+        <h2>Data Storage</h2>
+        <p>The following data is stored only on your local device:</p>
+        <ul>
+            <li><strong>Subscription status:</strong> stored in iOS Keychain and the App Group shared UserDefaults, used only by the keyboard extension to verify membership.</li>
+            <li><strong>User word frequency / user dictionary:</strong> records of the characters and words you choose, used only for personalized candidate ranking. Stored in the App Group container and never uploaded.</li>
+            <li><strong>Input history:</strong> not saved; cleared every time the keyboard is dismissed.</li>
+        </ul>
+        <p>None of this data is shared with any third party and never leaves your device.</p>
+    </div>
+</section>
+
+<section>
+    <div class="zh">
+        <h2>第三方服务</h2>
+        <p>本应用使用的唯一第三方服务是 <strong>Apple StoreKit</strong>（App 内购买与订阅），由 Apple Inc. 提供。</p>
+        <p>StoreKit 受 <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple 隐私政策</a> 约束。我们无法访问你的 Apple ID、支付方式或购买记录详情。</p>
+        <p>本应用<strong>不使用</strong>任何分析 SDK、广告 SDK、统计工具或第三方追踪服务。</p>
+    </div>
+    <div class="en">
+        <h2>Third-Party Services</h2>
+        <p>The only third-party service used by this app is <strong>Apple StoreKit</strong> (in-app purchases and subscriptions), provided by Apple Inc.</p>
+        <p>StoreKit is governed by the <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple Privacy Policy</a>. We cannot access your Apple ID, payment method, or purchase details.</p>
+        <p>This app <strong>does not use</strong> any analytics SDK, advertising SDK, statistics tool, or third-party tracking service.</p>
+    </div>
+</section>
+
+<section>
+    <div class="zh">
+        <h2>键盘扩展的隐私保护原理</h2>
+        <p>iOS 键盘扩展运行在严格的系统沙箱中：</p>
+        <ul>
+            <li>默认情况下，键盘<strong>不能</strong>访问网络</li>
+            <li>默认情况下，键盘<strong>不能</strong>访问其他 App 的数据</li>
+            <li>只有用户主动在"设置 → 通用 → 键盘 → 拼音键盘"中开启"允许完全访问"，键盘才能获得有限的网络和数据库访问权限</li>
+        </ul>
+        <p>咕咕拼音<strong>强烈建议用户关闭"允许完全访问"</strong>。本键盘所有功能（全键盘拼音、句级输入、用户词库、候选排序、主题、触感、音效）均在关闭完全访问的状态下正常工作。</p>
+        <p>需要说明：本键盘扩展在技术上声明了"完全访问"能力，但应用内<strong>不存在任何</strong>将输入内容或数据通过网络发送出去的代码；除非用户手动开启该权限，否则 iOS 的系统隔离会阻止键盘联网。</p>
+    </div>
+    <div class="en">
+        <h2>How the Keyboard Extension Protects Your Privacy</h2>
+        <p>iOS keyboard extensions run in a strict system sandbox:</p>
+        <ul>
+            <li>By default, the keyboard <strong>cannot</strong> access the network</li>
+            <li>By default, it <strong>cannot</strong> access data from other apps</li>
+            <li>Only if you manually enable "Allow Full Access" under Settings → General → Keyboard → Pinyin Keyboard does the keyboard gain limited network and database access</li>
+        </ul>
+        <p>Gugu Pinyin <strong>strongly recommends keeping "Allow Full Access" turned off</strong>. All keyboard features (full-keyboard pinyin, sentence-level input, user dictionary, candidate ranking, themes, haptics, key sounds) work normally with Full Access disabled.</p>
+        <p>Note: technically this keyboard extension declares the "Full Access" capability, but the app contains <strong>no code</strong> that sends your input or data over the network; unless you manually enable it, iOS sandbox isolation prevents the keyboard from connecting to the network.</p>
+    </div>
+</section>
+
+<section>
+    <div class="zh">
+        <h2>用户权利</h2>
+        <p>由于本应用不在服务器端收集任何数据，因此：</p>
+        <ul>
+            <li>不存在需要删除的云端数据</li>
+            <li>不存在需要导出的个人信息</li>
+            <li>卸载应用即清除所有本地数据（App Group 容器数据会在卸载时被系统自动清除）</li>
+        </ul>
+    </div>
+    <div class="en">
+        <h2>Your Rights</h2>
+        <p>Because this app collects no data on our servers:</p>
+        <ul>
+            <li>There is no cloud data to delete</li>
+            <li>There is no personal information to export</li>
+            <li>Uninstalling the app clears all local data (the App Group container data is automatically cleared by the system on uninstall)</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <div class="zh">
+        <h2>儿童隐私</h2>
+        <p>本应用不收集任何人的个人数据，包括儿童。所有年龄段的用户享有同等的隐私保护。</p>
+    </div>
+    <div class="en">
+        <h2>Children's Privacy</h2>
+        <p>This app does not collect personal data from anyone, including children. Users of all ages receive the same privacy protection.</p>
+    </div>
+</section>
+
+<section>
+    <div class="zh">
+        <h2>隐私政策更新</h2>
+        <p>本隐私政策可能随时更新。重大变更时，我们会在应用内显著位置通知。建议你定期查阅本页面。</p>
+    </div>
+    <div class="en">
+        <h2>Changes to This Privacy Policy</h2>
+        <p>This Privacy Policy may be updated at any time. For significant changes, we will notify you prominently within the app. We recommend reviewing this page periodically.</p>
+    </div>
+</section>
+
+<section>
+    <div class="zh">
+        <h2>联系我们</h2>
+        <p>如对本隐私政策有任何疑问，请通过以下方式联系：</p>
+        <p>📧 <a href="mailto:yang-nigoolasi@foxmail.com">yang-nigoolasi@foxmail.com</a></p>
+    </div>
+    <div class="en">
+        <h2>Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+        <p>📧 <a href="mailto:yang-nigoolasi@foxmail.com">yang-nigoolasi@foxmail.com</a></p>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <span class="zh">© 2026 咕咕拼音 · 保留所有权利</span>
+    <span class="en">© 2026 Gugu Pinyin. All rights reserved.</span>
+</footer>
+
+<script>
+    document.querySelectorAll('.lang-switch button').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var lang = btn.dataset.lang;
+            document.body.className = 'lang-' + lang;
+            document.querySelectorAll('.lang-switch button').forEach(function (b) {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>

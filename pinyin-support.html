@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支持说明 · 咕咕拼音</title>
+    <style>
+        :root {
+            --text: #1d1d1f;
+            --secondary: #6e6e73;
+            --bg: #ffffff;
+            --card: #f5f5f7;
+            --border: #d2d2d7;
+            --accent: #0071e3;
+            --max-w: 760px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        header {
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        header h1 {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+        }
+        header p {
+            max-width: var(--max-w);
+            margin: 4px auto 0;
+            padding: 0 24px;
+            color: var(--secondary);
+            font-size: 15px;
+        }
+        .lang-switch {
+            max-width: var(--max-w);
+            margin: 12px auto 0;
+            padding: 0 24px;
+            display: flex;
+            gap: 8px;
+        }
+        .lang-switch button {
+            font: inherit;
+            font-size: 14px;
+            padding: 6px 18px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--secondary);
+            border-radius: 980px;
+            cursor: pointer;
+            transition: all .15s ease;
+        }
+        .lang-switch button.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+        main {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 32px 24px 64px;
+        }
+        section { margin-bottom: 36px; }
+        h2 {
+            font-size: 21px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+        h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin: 16px 0 6px;
+        }
+        p, li { font-size: 16px; color: #333; }
+        p + p { margin-top: 10px; }
+        ul { padding-left: 20px; margin: 8px 0; }
+        li { margin-bottom: 6px; }
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin: 14px 0;
+        }
+        .tag {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            background: rgba(0,113,227,0.1);
+            border-radius: 6px;
+            padding: 2px 8px;
+            margin-left: 6px;
+        }
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 24px;
+            text-align: center;
+            color: var(--secondary);
+            font-size: 14px;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        code {
+            background: var(--card);
+            border-radius: 5px;
+            padding: 1px 6px;
+            font-size: 14px;
+        }
+        body.lang-zh .en { display: none; }
+        body.lang-en .zh { display: none; }
+    </style>
+</head>
+<body class="lang-zh">
+
+<header>
+    <h1>支持说明 · 咕咕拼音</h1>
+    <p>
+        <span class="zh">功能、会员与常见问题 · 最后更新：2026年7月15日</span>
+        <span class="en">Features, Membership &amp; FAQ · Last updated: July 15, 2026</span>
+    </p>
+    <div class="lang-switch">
+        <button class="active" data-lang="zh">中文</button>
+        <button data-lang="en">English</button>
+    </div>
+</header>
+
+<main>
+
+<!-- A. 功能与设置使用 FAQ -->
+<section>
+    <div class="zh">
+        <h2>A. 功能与设置使用 FAQ</h2>
+
+        <h3>如何启用键盘？</h3>
+        <p>前往 <code>设置 → 通用 → 键盘 → 键盘 → 添加新键盘</code>，选择「拼音键盘」，按提示完成添加。在任意可输入界面点击地球仪 🌐 图标即可切换到本键盘。首次使用无需任何特殊授权。</p>
+
+        <h3>支持哪些输入方式？</h3>
+        <ul>
+            <li><strong>全键盘拼音：</strong>标准 QWERTY 全键盘，支持九键/全键布局。</li>
+            <li><strong>句级（整句）输入：</strong>基于 RIME 引擎的整句拼音输入，一次输入一整句话并智能分词。</li>
+            <li><strong>智能候选：</strong>候选词三级排序 + Bigram 语言模型预测，越用越顺手。</li>
+        </ul>
+
+        <h3>内置哪些词库？</h3>
+        <ul>
+            <li>拼音词库：约 156 万词组，覆盖日常与专业用语。</li>
+            <li>英文词库：常用英文单词。</li>
+            <li>网络热词 / emoji 词典（sassy）：流行语与表情。</li>
+            <li>诗词词频：常用诗词精选。</li>
+        </ul>
+
+        <h3>如何管理用户词库 / 记忆？</h3>
+        <p>本键盘会学习你的选词习惯以优化候选排序，所有学习数据仅保存在本机。如需清空，请在主 App「设置 → 重置用户词库」中操作，一键清除全部个人学习数据，不影响系统其他内容。</p>
+
+        <h3>主题与外观</h3>
+        <ul>
+            <li>青色主色调，跟随系统亮 / 暗模式自动切换。</li>
+            <li>玻璃模糊背景、圆角按键与细腻动画。</li>
+        </ul>
+
+        <h3>触感与音效</h3>
+        <ul>
+            <li><strong>触感反馈：</strong>提供关闭 / 轻 / 中 / 重 四档，可在设置中调节。</li>
+            <li><strong>按键音：</strong>会员功能<span class="tag">会员</span>，开通后可在设置中开关并调节音量。</li>
+            <li><strong>长按弹出表情 / 标点网格：</strong>年订阅专属<span class="tag">年订阅</span>，长按按键即可呼出自定义表情或标点面板。</li>
+        </ul>
+    </div>
+    <div class="en">
+        <h2>A. Features &amp; Setup FAQ</h2>
+
+        <h3>How do I enable the keyboard?</h3>
+        <p>Go to <code>Settings → General → Keyboard → Keyboards → Add New Keyboard</code>, select "Pinyin Keyboard", and follow the prompts. Tap the 🌐 (globe) icon in any text field to switch to this keyboard. No special permission is required on first use.</p>
+
+        <h3>What input methods are supported?</h3>
+        <ul>
+            <li><strong>Full-keyboard Pinyin:</strong> standard QWERTY layout.</li>
+            <li><strong>Sentence-level input:</strong> whole-sentence pinyin input powered by the RIME engine, with smart segmentation.</li>
+            <li><strong>Smart candidates:</strong> three-tier candidate ranking + Bigram language-model prediction that learns as you type.</li>
+        </ul>
+
+        <h3>What dictionaries are built in?</h3>
+        <ul>
+            <li>Pinyin dictionary: ~1.56 million phrases covering everyday and professional usage.</li>
+            <li>English dictionary: common English words.</li>
+            <li>Slang / emoji dictionary (sassy): trending phrases and emojis.</li>
+            <li>Poetry word frequency: a curated selection of common poems.</li>
+        </ul>
+
+        <h3>How do I manage the user dictionary / memory?</h3>
+        <p>The keyboard learns your word choices to improve candidate ranking; all learning data stays on your device. To clear it, open the main app and go to <code>Settings → Reset User Dictionary</code> to wipe all personal learning data in one tap — it does not affect anything else on your device.</p>
+
+        <h3>Theme &amp; appearance</h3>
+        <ul>
+            <li>Cyan accent color that follows the system Light / Dark mode automatically.</li>
+            <li>Glass blur background, rounded keys, and subtle animations.</li>
+        </ul>
+
+        <h3>Haptics &amp; sound</h3>
+        <ul>
+            <li><strong>Haptic feedback:</strong> Off / Light / Medium / Heavy, adjustable in Settings.</li>
+            <li><strong>Key sounds:</strong> a membership feature<span class="tag">Member</span> — once unlocked, toggle and adjust volume in Settings.</li>
+            <li><strong>Long-press emoji / punctuation grid:</strong> exclusive to yearly subscribers<span class="tag">Yearly</span> — long-press a key to bring up a custom emoji or punctuation panel.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- B. 会员 / 内购与退款说明 -->
+<section>
+    <div class="zh">
+        <h2>B. 会员 / 内购与退款说明</h2>
+
+        <h3>购买模式</h3>
+        <ul>
+            <li><strong>买断（终身）：</strong>一次性付费，永久解锁全部会员功能。</li>
+            <li><strong>订阅：</strong>按月或按年自动续费，解锁全部会员功能。</li>
+            <li><strong>年订阅专属：</strong>年订阅额外包含长按表情 / 标点网格等专属能力。</li>
+            <li><strong>免费试用：</strong>新用户可享 24 小时免费体验全部会员功能（通过 StoreKit 2 实现）。</li>
+        </ul>
+
+        <h3>各档差异</h3>
+        <div class="card">
+            <p><strong>买断 / 订阅：</strong>按键音、全部主题与触感档位、去广告式纯净体验。</p>
+            <p><strong>年订阅额外专属：</strong>长按弹出自定义表情 / 标点网格。</p>
+            <p><strong>免费版：</strong>完整拼音输入与词库均可使用，仅部分增强功能需会员。</p>
+        </div>
+
+        <h3>如何恢复购买？</h3>
+        <p>更换设备或重装后，打开主 App，点击「恢复购买」（基于 <code>AppStore.sync()</code>）即可将已购项目同步回当前 Apple ID，无需重复付费。</p>
+
+        <h3>如何申请退款？</h3>
+        <p>所有支付均由 Apple 处理，开发者无法直接退款。如需退款，请通过 Apple 官方渠道申请：</p>
+        <ul>
+            <li>访问 <a href="https://reportaproblem.apple.com" target="_blank">reportaproblem.apple.com</a>，使用同一 Apple ID 登录。</li>
+            <li>找到对应订单，选择「报告问题 / 申请退款」并按提示操作。</li>
+            <li>退款结果由 Apple 审核决定，通常 1–2 周内处理完毕。</li>
+        </ul>
+    </div>
+    <div class="en">
+        <h2>B. Membership, In-App Purchases &amp; Refunds</h2>
+
+        <h3>Purchase models</h3>
+        <ul>
+            <li><strong>Lifetime (one-time):</strong> a single payment that permanently unlocks all membership features.</li>
+            <li><strong>Subscription:</strong> monthly or yearly auto-renewing plan that unlocks all membership features.</li>
+            <li><strong>Yearly-exclusive:</strong> the yearly plan additionally includes exclusive capabilities such as the long-press emoji / punctuation grid.</li>
+            <li><strong>Free trial:</strong> new users get a 24-hour free trial of all membership features (via StoreKit 2).</li>
+        </ul>
+
+        <h3>Plan differences</h3>
+        <div class="card">
+            <p><strong>Lifetime / Subscription:</strong> key sounds, all themes and haptic levels, an ad-free clean experience.</p>
+            <p><strong>Yearly-exclusive:</strong> long-press custom emoji / punctuation grid.</p>
+            <p><strong>Free version:</strong> full pinyin input and dictionaries are usable; only some enhanced features require membership.</p>
+        </div>
+
+        <h3>How do I restore purchases?</h3>
+        <p>After switching devices or reinstalling, open the main app and tap "Restore Purchases" (based on <code>AppStore.sync()</code>) to sync your purchased items back to the current Apple ID — no need to pay again.</p>
+
+        <h3>How do I request a refund?</h3>
+        <p>All payments are handled by Apple; the developer cannot issue refunds directly. To request a refund, use Apple's official channel:</p>
+        <ul>
+            <li>Visit <a href="https://reportaproblem.apple.com" target="_blank">reportaproblem.apple.com</a> and sign in with the same Apple ID.</li>
+            <li>Find the relevant order, choose "Report a Problem / Request a Refund" and follow the prompts.</li>
+            <li>Refund decisions are made by Apple and are typically processed within 1–2 weeks.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- C. 客服与反馈渠道 -->
+<section>
+    <div class="zh">
+        <h2>C. 客服与反馈渠道</h2>
+        <div class="card">
+            <h3>如何联系我们</h3>
+            <ul>
+                <li><strong>应用内反馈：</strong>在主 App「设置 → 反馈」中直接提交问题或建议。</li>
+                <li><strong>邮件：</strong>📧 <a href="mailto:yang-nigoolasi@foxmail.com">yang-nigoolasi@foxmail.com</a></li>
+            </ul>
+            <p>本应用由个人开发者维护。我们会尽力在收到反馈后的数个工作日内回复；高峰期可能略有延迟，敬请谅解。</p>
+        </div>
+    </div>
+    <div class="en">
+        <h2>C. Support &amp; Feedback</h2>
+        <div class="card">
+            <h3>How to reach us</h3>
+            <ul>
+                <li><strong>In-app feedback:</strong> submit issues or suggestions directly via "Settings → Feedback" in the main app.</li>
+                <li><strong>Email:</strong> 📧 <a href="mailto:yang-nigoolasi@foxmail.com">yang-nigoolasi@foxmail.com</a></li>
+            </ul>
+            <p>This app is maintained by an individual developer. We do our best to reply within a few business days of receiving feedback; during peak periods there may be slight delays — thank you for your understanding.</p>
+        </div>
+    </div>
+</section>
+
+<!-- D. 故障排查 -->
+<section>
+    <div class="zh">
+        <h2>D. 故障排查</h2>
+
+        <h3>键盘不显示 / 候选为空</h3>
+        <ul>
+            <li>确认已在 <code>设置 → 通用 → 键盘 → 键盘</code> 中添加并开启「拼音键盘」。</li>
+            <li>在输入界面点击地球仪 🌐 图标，确认已切换到本键盘。</li>
+            <li>「允许完全访问」为<strong>可选</strong>功能，关闭状态下所有输入功能均正常。</li>
+        </ul>
+
+        <h3>为什么「无法联网 / 候选不更新」？</h3>
+        <p>这是<strong>正常现象</strong>。键盘扩展默认处于系统离线隔离状态，所有输入与候选均在本地完成；联网仅发生在你<strong>主动打开购买页面</strong>时。无需担心，也不是故障。</p>
+
+        <h3>会员 / 订阅不生效</h3>
+        <ul>
+            <li>打开主 App，点击「恢复购买」重新同步。</li>
+            <li>确认当前 Apple ID 与购买时一致。</li>
+            <li>尝试重启设备或在设置中移除并重新添加键盘。</li>
+        </ul>
+
+        <h3>用户词库异常 / 候选变差</h3>
+        <p>在「设置 → 重置用户词库」中清空学习数据即可恢复初始状态（不会删除系统词库）。</p>
+
+        <h3>重装后免费试用被重置？</h3>
+        <p>试用起点记录在 iOS Keychain 中以防重装滥用，因此重装应用后试用计时可能重新计算。如已付费，请使用「恢复购买」同步会员状态。</p>
+    </div>
+    <div class="en">
+        <h2>D. Troubleshooting</h2>
+
+        <h3>The keyboard doesn't appear / candidates are empty</h3>
+        <ul>
+            <li>Make sure "Pinyin Keyboard" has been added and enabled under <code>Settings → General → Keyboard → Keyboards</code>.</li>
+            <li>In a text field, tap the 🌐 (globe) icon to confirm you've switched to this keyboard.</li>
+            <li>"Allow Full Access" is <strong>optional</strong>; all input features work normally with it off.</li>
+        </ul>
+
+        <h3>Why "can't connect to the network / candidates don't update"?</h3>
+        <p>This is <strong>normal</strong>. The keyboard extension is offline by default under iOS sandbox isolation; all input and candidates are processed locally. The network is only used when you <strong>proactively open the purchase page</strong>. There is nothing wrong, and no need to worry.</p>
+
+        <h3>Membership / subscription not working</h3>
+        <ul>
+            <li>Open the main app and tap "Restore Purchases" to re-sync.</li>
+            <li>Confirm the current Apple ID matches the one used for purchase.</li>
+            <li>Try restarting the device, or remove and re-add the keyboard in Settings.</li>
+        </ul>
+
+        <h3>User dictionary abnormal / worse candidates</h3>
+        <p>Go to "Settings → Reset User Dictionary" to clear learning data and return to the initial state (the built-in system dictionaries are not deleted).</p>
+
+        <h3>Free trial reset after reinstall?</h3>
+        <p>The trial start time is stored in iOS Keychain to prevent abuse via reinstalling, so the trial timer may restart after reinstalling the app. If you've already paid, use "Restore Purchases" to sync your membership status.</p>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <span class="zh">© 2026 咕咕拼音 · 保留所有权利</span>
+    <span class="en">© 2026 Gugu Pinyin. All rights reserved.</span>
+</footer>
+
+<script>
+    document.querySelectorAll('.lang-switch button').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var lang = btn.dataset.lang;
+            document.body.className = 'lang-' + lang;
+            document.querySelectorAll('.lang-switch button').forEach(function (b) {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>
