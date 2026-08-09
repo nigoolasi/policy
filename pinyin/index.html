@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>咕咕拼音 — 真隐私拼音输入法</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f5f5f7; color: #1d1d1f; line-height: 1.6;
+        }
+        .hero {
+            text-align: center; padding: 80px 20px 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+        }
+        .hero .icon { width: 96px; height: 96px; border-radius: 24px; margin-bottom: 20px; box-shadow: 0 8px 32px rgba(0,0,0,.2); }
+        .hero h1 { font-size: clamp(28px, 5vw, 42px); font-weight: 700; letter-spacing: 1px; }
+        .hero p { font-size: 18px; opacity: .9; margin-top: 12px; max-width: 480px; margin-inline: auto; }
+        .hero .badges { margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .hero .badge { background: rgba(255,255,255,.15); backdrop-filter: blur(10px); padding: 6px 16px; border-radius: 20px; font-size: 13px; }
+        .download-btn {
+            display: inline-block; margin-top: 32px; padding: 14px 40px;
+            background: #fff; color: #764ba2; border-radius: 28px;
+            font-size: 16px; font-weight: 600; text-decoration: none;
+            box-shadow: 0 4px 16px rgba(0,0,0,.15); transition: transform .2s, box-shadow .2s;
+        }
+        .download-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+
+        section { max-width: 860px; margin: 0 auto; padding: 60px 24px; }
+        section h2 { font-size: 26px; text-align: center; margin-bottom: 40px; color: #1d1d1f; }
+
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+        .feature-card {
+            background: #fff; border-radius: 16px; padding: 28px 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,.06); transition: transform .2s;
+        }
+        .feature-card:hover { transform: translateY(-4px); }
+        .feature-card .icon { font-size: 32px; margin-bottom: 12px; }
+        .feature-card h3 { font-size: 17px; margin-bottom: 8px; }
+        .feature-card p { font-size: 14px; color: #666; }
+
+        .privacy {
+            background: linear-gradient(135deg, #1a1a2e, #16213e); color: #fff;
+            text-align: center; border-radius: 20px; padding: 48px 24px;
+        }
+        .privacy h2 { color: #fff; }
+        .privacy .items { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+        .privacy .item { text-align: center; }
+        .privacy .item .emoji { font-size: 40px; margin-bottom: 8px; }
+        .privacy .item p { font-size: 14px; opacity: .85; }
+
+        .themes { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .theme-dot {
+            width: 44px; height: 44px; border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.12); transition: transform .2s;
+        }
+        .theme-dot:hover { transform: scale(1.15); }
+
+        footer {
+            text-align: center; padding: 40px 24px; font-size: 13px; color: #999;
+        }
+        footer a { color: #764ba2; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <img class="icon" src="icon.png" alt="咕咕拼音">
+    <h1>咕咕拼音</h1>
+    <p>零权限 · 不联网 · 不追踪 —— 用自研本地引擎打造的真隐私拼音输入法</p>
+    <div class="badges">
+        <span class="badge">🔒 无需完全访问</span>
+        <span class="badge">🚀 纯离线引擎</span>
+        <span class="badge">🎨 14款皮肤</span>
+        <span class="badge">🧠 智能引导</span>
+    </div>
+    <a class="download-btn" href="https://apps.apple.com/app/id6741605266" target="_blank">📲 App Store 下载</a>
+</div>
+
+<section>
+    <h2>为什么选择咕咕拼音</h2>
+    <div class="features">
+        <div class="feature-card">
+            <div class="icon">🔐</div>
+            <h3>绝对隐私</h3>
+            <p>不要求「完全访问」权限，键盘扩展零网络能力，你敲下的每个字都不离开手机。</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">⚡</div>
+            <h3>自研引擎</h3>
+            <p>拼音转换、词组匹配、候选排序全在本地完成，无云端、零延迟。</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🧠</div>
+            <h3>智能引导</h3>
+            <p>打字时自动高亮合法后继字母，半透明淡化非法键，助你快速定位。</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🎨</div>
+            <h3>精美皮肤</h3>
+            <p>内置 14 款主题皮肤，一键切换全键变色——樱花、极光、莫兰迪……总有一款适合你。</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">👆</div>
+            <h3>滑动输入</h3>
+            <p>首行键下滑输数字、上滑出标点表情弹窗，退格左滑清空，手势操作一气呵成。</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">💬</div>
+            <h3>英文拼写纠错</h3>
+            <p>英文模式下自动检测拼写错误并给出建议，一键修正，中英混输无缝切换。</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="privacy">
+        <h2>你的隐私，我们来守护</h2>
+        <div class="items">
+            <div class="item"><div class="emoji">📵</div><p>不联网<br>不请求网络权限</p></div>
+            <div class="item"><div class="emoji">🔇</div><p>不追踪<br>不采集打字内容</p></div>
+            <div class="item"><div class="emoji">🚫</div><p>不上传<br>数据全在本地</p></div>
+            <div class="item"><div class="emoji">🛡️</div><p>不授权<br>无需"完全访问"</p></div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>精选皮肤</h2>
+    <div class="themes">
+        <div class="theme-dot" style="background:#007AFF" title="默认"></div>
+        <div class="theme-dot" style="background:linear-gradient(135deg,#2d2d2d,#1a1a1a)" title="暗夜"></div>
+        <div class="theme-dot" style="background:linear-gradient(135deg,#FF69B4,#FFB6C1)" title="樱花"></div>
+        <div class="theme-dot" style="background:linear-gradient(135deg,#7B68EE,#9B59B6)" title="极光"></div>
+        <div class="theme-dot" style="background:linear-gradient(135deg,#00BCD4,#0D7377)" title="暗夜·青"></div>
+        <div class="theme-dot" style="background:linear-gradient(135deg,#9C27B0,#7B1FA2)" title="暗夜·紫"></div>
+        <div class="theme-dot" style="background:linear-gradient(135deg,#FF4081,#C2185B)" title="暗夜·粉"></div>
+        <div class="theme-dot" style="background:linear-gradient(135deg,#FFC107,#F57C00)" title="暗夜·金"></div>
+    </div>
+</section>
+
+<footer>
+    <p>
+        <a href="https://nigoolasi.github.io/policy/pinyin-privacy.html" target="_blank">隐私政策</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">使用条款</a>
+    </p>
+    <p style="margin-top:8px">© 2026 咕咕拼音 · 你的隐私，值得守护</p>
+</footer>
+
+</body>
+</html>
