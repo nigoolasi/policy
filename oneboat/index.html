@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OneBoat — The system-level inbox for iPhone</title>
+<meta name="description" content="Save anything from any app in 3 seconds, find it in 3 seconds. On-device AI, smart reminders, geo-fencing. 100% private — no account, no cloud." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='26' fill='%2334C759'/%3E%3Cpolygon points='60,34 88,86 32,86' fill='%23fff'/%3E%3Cpath d='M36 100 Q52 92 68 100 T100 100' stroke='%23fff' stroke-width='7' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+<style>
+  :root{
+    --green:#34C759;
+    --green-deep:#0E8F3F;
+    --green-dark:#063A1C;
+    --ink:#0A1A12;
+    --muted:#5B6B62;
+    --line:rgba(10,40,20,.10);
+    --bg:#FFFFFF;
+    --bg-soft:#F4F9F5;
+    --shadow:0 12px 40px rgba(10,40,20,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"SF Pro Display","Helvetica Neue","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif;
+    color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  a{color:var(--green-deep);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* ── Nav ─────────────────────────────── */
+  nav{
+    position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;gap:28px;height:64px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;color:var(--ink);text-decoration:none;}
+  .brand svg{width:30px;height:30px;border-radius:8px;}
+  .brand:hover{text-decoration:none;}
+  nav .links{display:flex;gap:22px;margin-left:auto;}
+  nav .links a{color:var(--muted);font-size:14px;font-weight:600;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--green);color:#fff;font-weight:700;font-size:15px;
+    padding:11px 22px;border-radius:999px;text-decoration:none;
+    box-shadow:0 6px 18px rgba(52,199,89,.35);transition:transform .15s,box-shadow .15s;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(52,199,89,.45);text-decoration:none;}
+  .btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);box-shadow:none;}
+  .btn.ghost:hover{box-shadow:var(--shadow);}
+  nav .btn{padding:9px 18px;font-size:14px;}
+
+  /* ── Hero ────────────────────────────── */
+  .hero{
+    background:
+      radial-gradient(52% 45% at 85% -5%, rgba(52,199,89,.22), transparent 60%),
+      radial-gradient(45% 40% at 8% 110%, rgba(52,199,89,.14), transparent 60%),
+      linear-gradient(180deg,#FFFFFF 0%,#F2FBF4 100%);
+    padding:96px 0 84px;text-align:center;position:relative;overflow:hidden;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--green);color:#fff;font-size:13px;font-weight:800;
+    padding:8px 18px;border-radius:999px;letter-spacing:1.5px;text-transform:uppercase;
+  }
+  .hero h1{
+    font-size:clamp(42px, 7vw, 72px);font-weight:900;line-height:1.05;
+    letter-spacing:-2.5px;margin:28px auto 0;max-width:880px;
+  }
+  .hero h1 em{font-style:normal;color:var(--green-deep);}
+  .hero .sub{
+    font-size:clamp(17px, 2.4vw, 22px);color:var(--muted);font-weight:500;
+    margin:22px auto 0;max-width:640px;
+  }
+  .hero .cta-row{display:flex;gap:14px;justify-content:center;margin-top:38px;flex-wrap:wrap;}
+  .hero .cta-row .btn{font-size:17px;padding:15px 30px;}
+  .hero .trust{
+    display:flex;gap:26px;justify-content:center;margin-top:44px;flex-wrap:wrap;
+  }
+  .trust span{font-size:13.5px;font-weight:700;color:var(--muted);display:inline-flex;gap:7px;align-items:center;}
+  .trust svg{width:16px;height:16px;}
+  .hero-illus{margin:64px auto 0;max-width:960px;}
+
+  /* Hero 内嵌 App 卡片示意 */
+  .app-shots{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left;}
+  .shot{
+    background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px;min-height:240px;
+  }
+  .shot .ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;}
+  .shot h3{font-size:16px;font-weight:800;}
+  .shot p{font-size:13.5px;color:var(--muted);line-height:1.55;}
+
+  /* ── Section 通用 ────────────────────── */
+  section{padding:88px 0;}
+  section.soft{background:var(--bg-soft);}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 52px;}
+  .sec-head .tag{font-size:13px;font-weight:800;color:var(--green-deep);letter-spacing:2px;text-transform:uppercase;}
+  .sec-head h2{font-size:clamp(30px,4.5vw,44px);font-weight:900;letter-spacing:-1.5px;margin-top:12px;line-height:1.12;}
+  .sec-head p{color:var(--muted);margin-top:14px;font-size:16.5px;}
+
+  /* ── Features ────────────────────────── */
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .feat{
+    background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 28px;
+    transition:transform .18s,box-shadow .18s;
+  }
+  .feat:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .feat .ico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px;}
+  .feat h3{font-size:18px;font-weight:800;}
+  .feat p{font-size:14.5px;color:var(--muted);margin-top:8px;line-height:1.6;}
+
+  /* ── How it works ────────────────────── */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:step;}
+  .step{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px 28px;}
+  .step .num{
+    width:44px;height:44px;border-radius:50%;background:var(--green);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:19px;
+    margin-bottom:18px;box-shadow:0 6px 16px rgba(52,199,89,.35);
+  }
+  .step h3{font-size:18px;font-weight:800;}
+  .step p{font-size:14.5px;color:var(--muted);margin-top:8px;}
+
+  /* ── Real moments（痛点故事）────────── */
+  .story-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .story{
+    background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 26px 22px;
+    display:flex;flex-direction:column;gap:14px;
+    transition:transform .18s,box-shadow .18s;
+  }
+  .story:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .story .meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .story .who{
+    font-size:12.5px;font-weight:800;letter-spacing:.3px;color:var(--ink);
+    background:var(--bg-soft);border:1px solid var(--line);
+    padding:5px 12px;border-radius:999px;white-space:nowrap;
+  }
+  .story .scene{font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:.4px;text-transform:uppercase;}
+  .story .body{font-size:14.8px;line-height:1.68;color:var(--ink);}
+  .story .body em{font-style:italic;color:var(--muted);}
+  .before,.after{border-radius:12px;padding:12px 15px;font-size:13.5px;line-height:1.55;}
+  .before{background:#FFF5F1;border:1px solid #FFDCC9;}
+  .after{background:#E9FAEF;border:1px solid #BFE7CE;}
+  .before .lbl,.after .lbl{display:block;font-size:10.5px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:3px;}
+  .before .lbl{color:#C2410C;}
+  .after .lbl{color:var(--green-deep);}
+  .before p{margin:0;color:#7A4A38;}
+  .after p{margin:0;color:var(--ink);}
+
+  /* ── Privacy 深色块 ──────────────────── */
+  .privacy{
+    background:linear-gradient(160deg,#063A1C 0%,#0E8F3F 70%,#0A6B30 100%);
+    color:#fff;border-radius:28px;padding:64px 56px;position:relative;overflow:hidden;
+  }
+  .privacy::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,transparent,#A8F0B8,transparent);}
+  .privacy h2{font-size:clamp(28px,4vw,40px);font-weight:900;letter-spacing:-1px;max-width:560px;line-height:1.12;}
+  .privacy p{color:rgba(255,255,255,.82);margin-top:16px;font-size:16.5px;max-width:600px;}
+  .privacy .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px;}
+  .pv{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:20px 22px;}
+  .pv strong{display:block;font-size:15px;font-weight:800;color:#A8F0B8;}
+  .pv span{font-size:13.5px;color:rgba(255,255,255,.75);margin-top:4px;display:block;}
+
+  /* ── FAQ ─────────────────────────────── */
+  .faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:0;}
+  summary{
+    cursor:pointer;font-size:16px;font-weight:700;padding:20px 24px;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";font-size:22px;font-weight:400;color:var(--green-deep);transition:transform .2s;}
+  details[open] summary::after{transform:rotate(45deg);}
+  details p{padding:0 24px 20px;color:var(--muted);font-size:14.5px;}
+
+  /* ── CTA ─────────────────────────────── */
+  .cta-final{text-align:center;}
+  .cta-final h2{font-size:clamp(30px,4.5vw,44px);font-weight:900;letter-spacing:-1.5px;}
+  .cta-final p{color:var(--muted);margin-top:14px;font-size:17px;}
+  .cta-final .btn{font-size:18px;padding:16px 34px;margin-top:30px;}
+
+  footer{border-top:1px solid var(--line);padding:40px 0 60px;background:#F7FAF8;}
+  footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;}
+  footer .f-links{display:flex;gap:20px;font-size:13.5px;color:var(--muted);}
+  footer .f-links a{color:var(--muted);font-weight:600;}
+  footer .copy{font-size:13px;color:var(--muted);}
+
+  @media (max-width:860px){
+    .feat-grid,.steps,.story-grid{grid-template-columns:1fr;}
+    .app-shots{grid-template-columns:1fr;}
+    .privacy .grid{grid-template-columns:1fr;}
+    nav .links{display:none;}
+    section{padding:64px 0;}
+    .hero{padding:72px 0 64px;}
+    .privacy{padding:48px 28px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="background:linear-gradient(160deg,#34C759,#0E8F3F)">
+        <polygon points="60,34 88,86 32,86" fill="#fff"/>
+        <path d="M36 100 Q52 92 68 100 T100 100" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round"/>
+      </svg>
+      OneBoat
+    </a>
+    <div class="links">
+      <a href="#stories">Real life</a>
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a href="../OneBoat-privacy.html">Privacy</a>
+    </div>
+    <a class="btn" href="https://apps.apple.com/cn/app/id6792317638" target="_blank" rel="noopener">Get OneBoat</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">⚓ The system-level inbox for iPhone</span>
+    <h1>Save everything.<br/>Find it in <em>3 seconds</em>.<br/>Never lose it again.</h1>
+    <p class="sub">OneBoat is the front-door inbox for your iPhone. Share anything from any app, let on-device AI sort it, and find it again instantly — all without an account or the cloud.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://apps.apple.com/cn/app/id6792317638" target="_blank" rel="noopener">
+        Download on the App Store
+      </a>
+      <a class="btn ghost" href="#how">See how it works</a>
+    </div>
+    <div class="trust">
+      <span>iOS 16+</span>
+      <span>100% On-device AI</span>
+      <span>No account · No cloud</span>
+      <span>No ads · No tracking</span>
+    </div>
+  </div>
+
+  <!-- Hero 内嵌三卡片示意 -->
+  <div class="wrap hero-illus">
+    <div class="app-shots">
+      <div class="shot">
+        <div class="ico" style="background:#E8F9EF">📥</div>
+        <h3>Save anything</h3>
+        <p>Screenshots, links, PDFs, files, notes — share from any app and it lands in your inbox in 3 seconds.</p>
+      </div>
+      <div class="shot">
+        <div class="ico" style="background:#EEF0FF">🧠</div>
+        <h3>AI sorts it for you</h3>
+        <p>OCR reads your photos, auto-tags them (Travel / Shopping / To-Read), and writes a summary — on your phone.</p>
+      </div>
+      <div class="shot">
+        <div class="ico" style="background:#FFF3E8">⏰</div>
+        <h3>Never forget</h3>
+        <p>Set deadlines, get a 9&nbsp;PM #todo digest, and geo-fence pings when you're near a saved place.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ REAL MOMENTS（具体痛点故事）═══ -->
+<section id="stories" class="soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">Real life</div>
+      <h2>You've lived these days.</h2>
+      <p>Four real moments where something important vanished inside a phone — and how OneBoat gets it back in 3 seconds.</p>
+    </div>
+    <div class="story-grid">
+
+      <article class="story">
+        <div class="meta"><span class="who">📸 The screenshot keeper</span><span class="scene">Sat · 3:47 PM · Grocery store, aisle 7</span></div>
+        <p class="body">Friday night, Emily screenshots a meal-prep list from Instagram and tells herself <em>"I'll grab these tomorrow."</em> Now she's at the dairy cooler, swiping through 2,317 photos. Six minutes later she gives up and shops from memory — the oat milk never makes it home.</p>
+        <div class="before"><span class="lbl">Without OneBoat</span><p>The list is still on her phone. It's just not findable.</p></div>
+        <div class="after"><span class="lbl">With OneBoat</span><p>Share → Add. OCR makes the photo searchable, tagged <b>#grocery</b>. When she's near the store, a ping brings it back. 3 seconds.</p></div>
+      </article>
+
+      <article class="story">
+        <div class="meta"><span class="who">🧾 The receipt hunter</span><span class="scene">Mon · 11:02 PM · Expense report due tomorrow</span></div>
+        <p class="body">David spent 40 minutes hunting one receipt — a ¥480 dinner from August. He remembers the food, not the date. The camera roll sorts by date, not by memory, so the search goes nowhere. He closes the report without it.</p>
+        <div class="before"><span class="lbl">Without OneBoat</span><p>A real expense, gone forever. Because the date was the only way to look.</p></div>
+        <div class="after"><span class="lbl">With OneBoat</span><p>On-device AI reads the text right off the photo. Search <b>"dinner"</b> — or just <b>"480"</b> — and it's there in 3 seconds.</p></div>
+      </article>
+
+      <article class="story">
+        <div class="meta"><span class="who">✍️ The writer</span><span class="scene">Tue · 2:35 PM · Article due Friday</span></div>
+        <p class="body">Rachel needs a piece she saved three months ago — the one about LLM inference costs. She remembers the argument, not the title. Bookmark folders don't search content; the chat archive is a black hole. Twenty-five minutes of scrolling, then a full Google re-search from scratch.</p>
+        <div class="before"><span class="lbl">Without OneBoat</span><p>She found the article. She lost 25 minutes and her flow.</p></div>
+        <div class="after"><span class="lbl">With OneBoat</span><p>Every saved link gets a title, a summary and tags — all searchable. One query, exact hit, straight back to the source.</p></div>
+      </article>
+
+      <article class="story">
+        <div class="meta"><span class="who">🍜 The foodie</span><span class="scene">Fri · 6:40 PM · Street corner, hungry</span></div>
+        <p class="body">James has 213 restaurants saved across two apps. Tonight, standing in the cold with his girlfriend, he needs one nearby — that's open. No filter, no distance, no order. Ten minutes of thumbing while she sighs. They end up at the usual place.</p>
+        <div class="before"><span class="lbl">Without OneBoat</span><p>213 saved places. Zero usable ones.</p></div>
+        <div class="after"><span class="lbl">With OneBoat</span><p>Save once, tag <b>#restaurant</b>, filter by distance — get pinged when you're in the neighborhood. Decided in 3 seconds.</p></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FEATURES ═══ -->
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">Features</div>
+      <h2>Everything your clutter needs</h2>
+      <p>OneBoat doesn't replace your notes app — it's the inbox in front of it. Fragments land here first; deep work stays in Notion, Obsidian or Apple Notes.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat">
+        <div class="ico" style="background:#E8F9EF">📥</div>
+        <h3>Save anything</h3>
+        <p>Images, links, files, text, audio, even PDFs and contacts. Any app → Share → Add to OneBoat. Done.</p>
+      </div>
+      <div class="feat">
+        <div class="ico" style="background:#EEF0FF">🧠</div>
+        <h3>On-device AI</h3>
+        <p>Automatic OCR, categories, tags and summaries — powered by Apple frameworks, running 100% on your device.</p>
+      </div>
+      <div class="feat">
+        <div class="ico" style="background:#FFF3E8">⏰</div>
+        <h3>Reminders that work</h3>
+        <p>Deadline reminders, a 9&nbsp;PM evening digest for #todo items, and daily summaries of what you saved.</p>
+      </div>
+      <div class="feat">
+        <div class="ico" style="background:#E8F4FF">📍</div>
+        <h3>Geo-fencing</h3>
+        <p>Saved a grocery list? Get pinged when you're near that store. Your saves meet you where you are.</p>
+      </div>
+      <div class="feat">
+        <div class="ico" style="background:#F6EEFF">🖥️</div>
+        <h3>System integration</h3>
+        <p>Home-screen widgets, Siri Shortcuts, an iMessage extension and Spotlight search — use it without opening the app.</p>
+      </div>
+      <div class="feat">
+        <div class="ico" style="background:#E8F9EF">🔍</div>
+        <h3>Find in 3 seconds</h3>
+        <p>Filter by type, tag, source and time. Full-text search over titles, content, summaries and tags.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section id="how" class="soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">How it works</div>
+      <h2>Three seconds in, three seconds out</h2>
+      <p>No import steps, no tagging chores, no "where should I put this?" moments.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Share</h3>
+        <p>In any app, tap the Share button and choose "Add to OneBoat". It's saved before you can forget it.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>AI sorts</h3>
+        <p>On-device AI reads the content, adds smart tags, a category and a summary — automatically, privately.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Find</h3>
+        <p>Search, filter, or ask Spotlight. Tap the reminder and jump straight back to the exact item.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRIVACY ═══ -->
+<section id="privacy" class="soft">
+  <div class="wrap">
+    <div class="privacy">
+      <h2>Your data never leaves your phone.</h2>
+      <p>We built OneBoat the way we'd want it: local storage, on-device intelligence, and zero surveillance. Your personal data isn't anyone's business — not even ours.</p>
+      <div class="grid">
+        <div class="pv"><strong>🔒 Local SQLite</strong><span>Everything lives in a database inside the app sandbox.</span></div>
+        <div class="pv"><strong>🧠 AI on-device</strong><span>OCR, tags and summaries run on Apple frameworks locally.</span></div>
+        <div class="pv"><strong>🚫 No account</strong><span>No sign-up, no login, no backend, no cloud sync required.</span></div>
+        <div class="pv"><strong>🛡️ No ads, no tracking</strong><span>No trackers, no analytics, no "personalized" anything.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">FAQ</div>
+      <h2>Questions, answered</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Is OneBoat a note-taking app?</summary>
+        <p>No. OneBoat is the <strong>front-door inbox</strong> for your notes app. It catches the fragments — screenshots, links, files — so you never lose them, and you keep doing deep work in Notion, Obsidian or Apple Notes. They're partners, not competitors.</p>
+      </details>
+      <details>
+        <summary>Where is my data stored?</summary>
+        <p>All data is stored locally in the app sandbox (SQLite). Optional iCloud backup is available for device-to-device safety. Nothing is uploaded to any server.</p>
+      </details>
+      <details>
+        <summary>Does the AI upload anything?</summary>
+        <p>No. All AI features — OCR, categorization, summaries, tags — run on-device using Apple's frameworks. There is no server call and no network upload.</p>
+      </details>
+      <details>
+        <summary>Which iPhone models and iOS versions are supported?</summary>
+        <p>OneBoat requires iOS 16 or later and runs on iPhone. Widgets need iOS 16.2+.</p>
+      </details>
+      <details>
+        <summary>Can I cancel my subscription?</summary>
+        <p>Yes, anytime — in the App Store's Subscriptions settings. You keep full access until the end of the current period. A one-time Lifetime purchase is also available if you prefer to pay once.</p>
+      </details>
+      <details>
+        <summary>Do I need an account?</summary>
+        <p>No account, no email, no password. Install and start saving.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section id="download" class="soft" style="padding-top:60px;padding-bottom:80px;">
+  <div class="wrap cta-final">
+    <h2>Your iPhone needs an inbox.</h2>
+    <p>Save everything. Find it. Never forget.</p>
+    <a class="btn" href="https://apps.apple.com/cn/app/id6792317638" target="_blank" rel="noopener">Download on the App Store</a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#" style="font-size:16px;">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px;border-radius:6px;background:linear-gradient(160deg,#34C759,#0E8F3F)">
+        <polygon points="60,34 88,86 32,86" fill="#fff"/>
+        <path d="M36 100 Q52 92 68 100 T100 100" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round"/>
+      </svg>
+      OneBoat
+    </a>
+    <div class="f-links">
+      <a href="../OneBoat-privacy.html">Privacy Policy</a>
+      <a href="../OneBoat-terms.html">Terms</a>
+      <a href="../OneBoat-support.html">Support</a>
+    </div>
+    <div class="copy">© 2026 OneBoat · Made for people who save too much.</div>
+  </div>
+</footer>
+
+</body>
+</html>
